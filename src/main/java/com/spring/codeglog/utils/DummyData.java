@@ -1,8 +1,11 @@
 package com.spring.codeglog.utils;
 
 
+import com.spring.codeglog.model.Cadastro;
 import com.spring.codeglog.model.Post; 
 import com.spring.codeglog.Repository.BlogRepository;
+import com.spring.codeglog.Repository.CadastroRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,31 +23,37 @@ import com.spring.codeglog.model.Post;
 @Component
 public class DummyData {
 
-    @Autowired
-    BlogRepository blogRepository;
+	@Autowired
+	CadastroRepository cadastroRepository;
 
-    //@PostConstruct
+   // @PostConstruct
     public void savePosts(){
 
-        List<Post> postList = new ArrayList<>();
-        Post post1 = new Post();
-        post1.setAutor("Bruno Alexandre");
-        post1.setData(LocalDate.now());
-        post1.setTitulo("Docker");
-        post1.setTexto("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+    	List<Cadastro> cadastrotList = new ArrayList<>();
+        Cadastro cadastro1 = new Cadastro();
+        cadastro1.setNome("Bruno Alexandre");
+        cadastro1.setEmail("BrunoAlexandre@gmail.com");
+        cadastro1.setSenha("Bruno");
+        cadastro1.setLogin("Bruno ");
+        
+        
+      
+        Cadastro cadastro2 = new Cadastro();
+        cadastro2.setNome("Michelli Brito");
+        cadastro2.setEmail("Michellibrito@gmail.com");
+        cadastro2.setSenha("Michelli");
+        cadastro2.setLogin("Michelli ");
+        
+       
+        cadastrotList.add(cadastro1);
+        cadastrotList.add(cadastro2);
 
-        Post post2 = new Post();
-        post2.setAutor("Michelli Brito");
-        post2.setData(LocalDate.now());
-        post2.setTitulo("API REST");
-        post2.setTexto("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
-
-        postList.add(post1);
-        postList.add(post2);
-
-        for(Post post: postList){
-            Post postSaved = blogRepository.save(post);
-            System.out.println(postSaved.getId());
+      
+        for(Cadastro cadastro: cadastrotList){
+        	Cadastro cadastroSaved = cadastroRepository.save(cadastro);
+   
+            System.out.println(cadastroSaved.getId());
+	
         }
     }
 }
