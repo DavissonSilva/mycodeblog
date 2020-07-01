@@ -1,4 +1,13 @@
+![alt text](img/logo.png)
+
+#### Link direto para a Aplicação:https://aplicacao-blog.herokuapp.com/posts
+
+Aplicação Desenvolvida para vários objetivos, podendo ser utilizado como um diário pessoal on-line, para divulgar conteúdos variados em um mesmo local, para promover a comunicação entre pessoas com os mesmos interesses, registrar o desenvolvimento de determinado processo (como, por exemplo, dieta, gravidez etc) ou um meio em que uma ou várias vozes podem se expressar livremente e não teriam essa possibilidade em qualquer outro meio.
+
+
+
 ![alt text](img/download.png)
+
 
 # String Boot
 
