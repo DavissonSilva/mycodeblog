@@ -1,11 +1,13 @@
 package com.spring.codeglog.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.spring.codeglog.model.Cadastro;
 
@@ -13,14 +15,15 @@ import com.spring.codeglog.model.Cadastro;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
-	
+	@Autowired
+	private ImplementsCadasDetailsService userDetailsService;
 	
 	
 	private static final String[] AUTH_LIST = {
 			"/",
 			"/posts",
-			"/posts/{id}",
-			//"/newpost"
+		//	"/posts/{id}",
+			
 			
 	};
 
@@ -36,9 +39,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure (AuthenticationManagerBuilder auth) throws Exception{
-		auth.inMemoryAuthentication()
-			.withUser("davisson").password("{noop}123").roles("ADMIN");
+		auth.userDetailsService(userDetailsService)
+		.passwordEncoder(new BCryptPasswordEncoder());
 	}
+	
+//	protected void configure (AuthenticationManagerBuilder auth) throws Exception{
+//		auth.inMemoryAuthentication()
+//			.withUser("davisson").password("{noop}123").roles("ADMIN");
+//		 Medado para fazer validação em memoria 
+//	}
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception{

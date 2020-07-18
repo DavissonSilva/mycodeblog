@@ -35,7 +35,7 @@ public class Cadastro implements UserDetails{
 	private String email;
 	@NotEmpty
 	private String senha;
-	private byte[] foto_perfil;
+	
 	
 	public Long getId() {
 		return id;
@@ -62,19 +62,11 @@ public class Cadastro implements UserDetails{
 	}
 
 	public String getSenha() {
-		return this.senha;
+		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public byte[] getFoto_perfil() {
-		return foto_perfil;
-	}
-
-	public void setFoto_perfil(byte[] foto_perfil) {
-		this.foto_perfil = foto_perfil;
 	}
 
 	@Override
@@ -86,13 +78,13 @@ public class Cadastro implements UserDetails{
 	@Override
 	public String getPassword() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.senha;
 	}
 
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.login;
 	}
 
 	@Override

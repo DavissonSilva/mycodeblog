@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.spring.codeglog.model.Cadastro;
 
 public interface CadastroRepository extends JpaRepository<Cadastro, String> {
-	Cadastro findByLonLogin(String login);
+	
+Cadastro findByLogin(String login);
 
 }

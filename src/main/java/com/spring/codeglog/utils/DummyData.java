@@ -26,23 +26,23 @@ public class DummyData {
 	@Autowired
 	CadastroRepository cadastroRepository;
 
-   // @PostConstruct
+    @PostConstruct
     public void savePosts(){
 
     	List<Cadastro> cadastrotList = new ArrayList<>();
         Cadastro cadastro1 = new Cadastro();
         cadastro1.setNome("Bruno Alexandre");
         cadastro1.setEmail("BrunoAlexandre@gmail.com");
-        cadastro1.setSenha("Bruno");
-        cadastro1.setLogin("Bruno ");
+        cadastro1.setSenha("123");
+        cadastro1.setLogin("brunoA ");
         
         
       
         Cadastro cadastro2 = new Cadastro();
-        cadastro2.setNome("Michelli Brito");
+        cadastro2.setNome(" Brito");
         cadastro2.setEmail("Michellibrito@gmail.com");
-        cadastro2.setSenha("Michelli");
-        cadastro2.setLogin("Michelli ");
+        cadastro2.setSenha("123");
+        cadastro2.setLogin("MBrito");
         
        
         cadastrotList.add(cadastro1);

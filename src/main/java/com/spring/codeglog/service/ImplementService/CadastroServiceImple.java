@@ -3,6 +3,7 @@ package com.spring.codeglog.service.ImplementService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.spring.codeglog.Repository.CadastroRepository;
@@ -37,7 +38,8 @@ public class CadastroServiceImple implements CadastroService{
 
 	@Override
 	public Cadastro save(Cadastro cadastro) {
-		// Metado para salvar cadastro
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encodedPassword = passwordEncoder.encode("123");
 		return cadastro ;
 	}
 	
